@@ -18,6 +18,20 @@ const User = db.define('user', {
     validate: {
       isIn: [['STUDENT', 'TEACHER']],
     }
+  },
+
+  isStudent: {
+    type: Sequelize.DataTypes.VIRTUAL,
+    get() {
+      return this.userType === 'STUDENT' ? true : false;
+    }
+  },
+
+  isTeacher: {
+    type: Sequelize.DataTypes.VIRTUAL,
+    get() {
+      return this.userType === 'TEACHER' ? true : false;
+    }
   }
 });
 
