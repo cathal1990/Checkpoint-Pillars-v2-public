@@ -2,9 +2,56 @@ const Sequelize = require('sequelize');
 const db = require('./db');
 
 const User = db.define('user', {
-  // Add your Sequelize fields here
+  name: {
+    type: Sequelize.STRING,
+    unique: true,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
+  },
 
+  userType: {
+    type: Sequelize.STRING,
+    defaultValue: 'STUDENT',
+    allowNull: false,
+    validate: {
+      isIn: [['STUDENT', 'TEACHER']],
+    }
+  }
 });
+
+User.findUnassignedStudents = async function() {
+  const students = await User.findAll({
+    where: {
+      userType: 'STUDENT',
+      mentorId: null,
+    }
+  })
+
+  const promise = new Promise((resolve, reject) => {
+    if (students) {
+      resolve(students);
+    }
+    else {
+      reject();
+    }
+  })
+  return promise;
+}
+
+User.findTeachersAndMentees = async function() {
+  const teachers = await User.findAll({
+    where: {
+      userType: 'TEACHER',
+    },
+    include: {
+      model: User, as: 'mentees',
+  }})
+
+  return teachers
+}
+
 
 
 /**
