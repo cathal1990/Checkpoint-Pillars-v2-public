@@ -80,4 +80,24 @@ router.post('/', async(req, res, next) => {
   }
 })
 
+router.put('/:id', async(req, res, next) => {
+  try{
+    const user = await User.findOne({
+      where: {
+        id: req.params.id,
+      }
+    });
+    if (user) {
+      const updated = await user.update(req.body)
+      res.status(200).send(updated)
+    }
+    else{
+      res.sendStatus(404)
+    }
+  }
+  catch(err){
+    next(err)
+  }
+})
+
 module.exports = router;

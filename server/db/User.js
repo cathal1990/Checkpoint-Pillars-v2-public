@@ -66,10 +66,50 @@ User.findTeachersAndMentees = async function() {
   return teachers
 }
 
-User.beforeUpdate(async(user, options) => {
+User.prototype.getPeers = async function() {
+  const mentor = this.mentorId;
+  const allStudents = await User.findAll({
+    where: {
+      userType: 'STUDENT',
+      mentorId: mentor,
+    }
+  })
+  return allStudents.filter((student) => {
+    return student.name !== this.name
+  })
+}
 
-  console.log(options)
+User.beforeUpdate(async(user) => {
+  const usersMentor = await user.getMentor();
+  const isStudentOrTeacher = user.userType;
+  const hasMentees = await user.getMentees();
+
+  const promise = new Promise((resolve, reject) => {
+    if (isStudentOrTeacher === 'STUDENT' ) {
+      if (hasMentees.length > 0){
+        reject();
+      }
+      else if (isStudentOrTeacher === 'STUDENT' && !usersMentor) {
+        resolve();
+      }
+
+      if (usersMentor.userType === 'STUDENT' ) {
+        reject();
+      }
+      else {
+        resolve();
+      }
+    }
+    else if (usersMentor) {
+      reject();
+    }
+    else {
+      resolve();
+    }
+  })
+  return promise;
 })
+
 
 
 /**

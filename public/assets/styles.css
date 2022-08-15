@@ -1,6 +1,13 @@
 body {
   font-family: verdana;
 }
+
+h1 {
+  display:flex;
+  background-color: aqua;
+  margin: 0;
+}
+
 #content {
   display: flex;
 }
