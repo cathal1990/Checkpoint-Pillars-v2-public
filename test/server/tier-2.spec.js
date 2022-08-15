@@ -81,7 +81,7 @@ describe('Tier 2: Eager Loading, One-To-Many Associations', () => {
 
   describe('Express', () => {
     describe('GET /api/users/teachers', () => {
-      xit('responds with all teachers', async () => {
+      it('responds with all teachers', async () => {
         const response = await app.get('/api/users/teachers');
         expect(response.status).to.equal(200);
         expect(response.body).to.be.an('array');
@@ -91,7 +91,7 @@ describe('Tier 2: Eager Loading, One-To-Many Associations', () => {
         expect(names).to.include('HANNAH');
       });
 
-      xit('responds with all teachers and their mentees', async () => {
+      it('responds with all teachers and their mentees', async () => {
         const response = await app.get('/api/users/teachers');
         expect(response.status).to.equal(200);
         expect(response.body).to.be.an('array');
