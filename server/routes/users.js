@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Sequelize = require('sequelize');
 const { parse } = require('pg-protocol');
 const {
   models: { User },
@@ -18,6 +19,21 @@ const {
  */
 
 // Add your routes here:
+
+router.get('/', async (req, res, next) => {
+  try {
+    const query = req.query.name.toLowerCase();
+    const users = await User.findAll({
+      where: {
+          name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('name')), 'LIKE', `%${query}%`),
+      }
+    })
+  res.status(200).send(users)
+  }
+  catch(err) {
+    next(err);
+  }
+})
 
 router.get('/unassigned', async (req, res, next) => {
   try{

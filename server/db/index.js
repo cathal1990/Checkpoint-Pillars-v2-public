@@ -5,6 +5,9 @@ const seed = require('./seed');
 
 // If we were to create any associations between different tables
 // this would be a good place to do that:
+User.hasMany(Subject);
+Subject.belongsToMany(User, {through: 'users_subjects'});
+
 
 module.exports = {
   db,
