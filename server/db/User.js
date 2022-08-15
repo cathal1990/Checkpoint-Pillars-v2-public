@@ -66,6 +66,10 @@ User.findTeachersAndMentees = async function() {
   return teachers
 }
 
+User.beforeUpdate(async(user, options) => {
+
+  console.log(options)
+})
 
 
 /**

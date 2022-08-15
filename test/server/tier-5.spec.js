@@ -26,8 +26,8 @@ describe('Tier 5: Sequelize Update Hook, PUT Routes, Express Error Handling', ()
       await db.sync({ force: true });
     });
 
-    describe('Updating: mentorId', () => {
-      xit('cannot update a user with a mentor who is not a TEACHER', async () => {
+    describe.only('Updating: mentorId', () => {
+      it('cannot update a user with a mentor who is not a TEACHER', async () => {
         const freddy = await User.create({ name: 'FREDDY' });
         const jerry = await User.create({ name: 'JERRY' });
         const updateJerryPromise = jerry.update({ mentorId: freddy.id });
@@ -36,7 +36,7 @@ describe('Tier 5: Sequelize Update Hook, PUT Routes, Express Error Handling', ()
         await expect(updateJerryPromise, errMessage).to.be.rejected;
       });
 
-      xit('can update a user with a mentor who is a TEACHER', async () => {
+      it('can update a user with a mentor who is a TEACHER', async () => {
         const freddy = await User.create({
           name: 'FREDDY',
           userType: 'TEACHER',
