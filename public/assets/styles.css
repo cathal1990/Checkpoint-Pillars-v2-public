@@ -95,15 +95,24 @@ select {
   border-radius: 8px;
 }
 
+select:hover {
+  cursor: pointer;
+}
+
 button {
   border-radius: 8px;
   min-width: 150px;
   width: 20%;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 ul {
   padding: 0;
 }
+
 
 li {
   display: flex;
