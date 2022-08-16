@@ -7,8 +7,4 @@ const Subject = db.define('subject', {
     }
 })
 
-// Subject.addUser = function(user) {
-
-//     console.log(this.__proto__)
-// }
 module.exports = Subject;

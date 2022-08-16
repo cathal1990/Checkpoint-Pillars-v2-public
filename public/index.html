@@ -1,19 +1,26 @@
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/bundle.js" defer></script>
     <link rel="stylesheet" href="/assets/styles.css" />
   </head>
   <body>
-    <h1>Acme Membership</h1>
+    <div class="h1-container">
+      <h1>Acme Membership</h1>
+    </div>
     <div id="error"></div>
-    <div id="content">
-      <div>
-        <h2>Create A Student</h2>
-        <div id="student-form">
-          <input placeholder="add a student" id="name" />
-          <button data-action="create-student">Create Student</button>
-        </div>
+    <div>
+      <div class="h2-container">
+      <h2>Create A Student</h2>
       </div>
+      <div id="student-form">
+        <input placeholder="add a student" id="name" />
+        <button data-action="create-student">Create Student</button>
+      </div>
+    </div>
+    <div id="content">
       <div>
         <h2>Teachers</h2>
         <ul id="teachers"></ul>
@@ -25,3 +32,5 @@
     </div>
   </body>
 </html>
+
+

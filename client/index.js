@@ -270,6 +270,7 @@ content.addEventListener('click', async (ev) => {
   const id = +ev.target.getAttribute('data-id');
   const mentorId = +ev.target.getAttribute('data-mentor-id');
   if (action === 'create-student') {
+    debugger;
     createStudent(studentNameField.value);
   } else if (action === 'delete-teacher') {
     deleteTeacher(id);

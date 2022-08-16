@@ -1,25 +1,104 @@
+
 body {
-  font-family: verdana;
+  font-family: Arial;
+  background-color:#99c0ff;
+  background-image:
+  radial-gradient(at 75% 63%, hsla(15,91%,62%,1) 0px, transparent 50%),
+  radial-gradient(at 93% 13%, hsla(287,69%,74%,1) 0px, transparent 50%),
+  radial-gradient(at 65% 26%, hsla(195,69%,78%,1) 0px, transparent 50%),
+  radial-gradient(at 56% 11%, hsla(215,86%,76%,1) 0px, transparent 50%),
+  radial-gradient(at 19% 79%, hsla(213,76%,76%,1) 0px, transparent 50%),
+  radial-gradient(at 37% 42%, hsla(58,75%,60%,1) 0px, transparent 50%),
+  radial-gradient(at 22% 25%, hsla(349,79%,74%,1) 0px, transparent 50%);
+}
+
+.h1-container {
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
   display:flex;
-  background-color: aqua;
-  margin: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 8px;
+  background: rgb(195,147,34);
+  padding: 10px;
+  margin: 10px 0 0 0;
+  /* background: linear-gradient(0deg, rgba(195,147,34,1) 0%, rgba(255,89,0,1) 100%); */
+  background: url('cool-background.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+.h2-container {
+  display: flex;
+  justify-content: center;
+}
+
+.h2-container > h2 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 20px;
+  max-width:fit-content;
+  border: 2px solid black;
+  border-radius: 8px;
+  background: rgb(195,147,34);
+  padding: 10px;
+  /* background: linear-gradient(0deg, rgba(195,147,34,1) 0%, rgba(255,89,0,1) 100%); */
+  background: url('cool-background.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 
 #content {
   display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 #content > * {
   flex: 1;
 }
+
+#content > div > h2 {
+  text-decoration: underline;
+}
+
 button,
 select,
 input {
   font-size: 1rem;
   padding: 0.25rem;
+  text-align: center;
+}
+
+input {
+  border-radius: 8px;
+  width: 15%;
+  min-width: 150px;
+}
+
+select {
+  border-radius: 8px;
+}
+
+button {
+  border-radius: 8px;
+  min-width: 150px;
+  width: 20%;
 }
 
 ul {
@@ -29,21 +108,34 @@ ul {
 li {
   display: flex;
   flex-direction: column;
-  border: solid 1px black;
+  /* justify-content: center; */
+  align-items: center;
+  font-weight: bold;
+  border: solid 2px black;
+  border-radius: 8px;
   margin: 1rem;
   padding: 1rem;
+  background: url('cool-background.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 li li {
-  border-width: 0;
+  /* border-width: 0; */
+  border: 2px solid black;
+  min-width:fit-content;
+  padding: 20px 50px 20px 50px;
 }
 
 li > * {
-  margin: 1rem 0;
+  margin: 0.65rem 0;
 }
 
 #student-form {
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
